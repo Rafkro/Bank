@@ -1,0 +1,34 @@
+# Comppiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for java
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+.idea
+*.iml
+
+
+
+
+
+
+
+
+
+# Default ignored files
+/shelf/
+/workspace.xml
