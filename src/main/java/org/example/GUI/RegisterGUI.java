@@ -68,8 +68,9 @@ public class RegisterGUI extends JFrame {
 
 // sprawdzenie czy użytkownik dobrze uzupełnil text field
 
-            String regex = "\\d+"; // wyrażenie regularne dopasowujące tylko liczby
+//            String regex = "\\d+"; // wyrażenie regularne dopasowujące tylko liczby
             String passwordStr = loginPassword.getText();
+
 
             if (customerName.getText().matches("[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ]+") && !customerName.getText().isEmpty()) {
                 System.out.println("Imię spełnia wymogi");
@@ -77,7 +78,7 @@ public class RegisterGUI extends JFrame {
                     System.out.println("Naziwsko spełnia wymogi");
                     if (!customerEmail.getText().isEmpty() && customerEmail.getText().contains("@")) {
                         System.out.println("Email spełnia wymogi");
-                    if (Pattern.matches(passwordStr, regex) && loginPassword.getText().length() > 5) {
+                    if (passwordStr.length() >= 5) {
                         System.out.println("Hasło spełnia wymogi");
 
                         customer.setFirstName(customerName.getText());
@@ -97,7 +98,7 @@ public class RegisterGUI extends JFrame {
                         this.dispose();
                         new LoginPanel();
                     } else {
-                        JOptionPane.showMessageDialog(null, "Hasło zawiera błędne znaki", "Błąd", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Błędne hasło", "Błąd", JOptionPane.ERROR_MESSAGE);
                         System.out.println("Hasło nie spełnia wymogów");
                     }
                 } else {
@@ -131,7 +132,7 @@ public class RegisterGUI extends JFrame {
 
         textPanel = new JPanel();
         textPanel.setBackground(Color.white);
-        textPanel.setLayout(new GridLayout(14, 2));
+        textPanel.setLayout(new GridLayout(12, 2));
         textPanel.setSize(400, 400);
         textPanel.add(customerIdLabel);
         textPanel.add(customerId);
@@ -147,18 +148,15 @@ public class RegisterGUI extends JFrame {
         textPanel.add(loginPassword);
 
 
-        Icon helpIcon = new ImageIcon("C:\\Users\\rafal\\OneDrive\\Pulpit\\bank\\src\\main\\resources\\Informacje.png");
-
+        Icon helpIcon = new ImageIcon("Images/Informacje.png");
 
         idHelp = new JLabel();
         idHelp.setIcon(helpIcon);
-        idHelp.setLocation(10,20);
         idHelp.setSize(30,30);
         idHelp.setToolTipText("Numer Twojego unikalnego identyfikatora ID. Jest on przydzielany automatycznie.");
 
         nameHelp = new JLabel();
         nameHelp.setIcon(helpIcon);
-        nameHelp.setLocation(10,20);
         nameHelp.setSize(30,30);
         nameHelp.setToolTipText("W tym oknie należy wpisać swoję imię.");
 
@@ -180,7 +178,7 @@ public class RegisterGUI extends JFrame {
         passwordHelp = new JLabel();
         passwordHelp.setIcon(helpIcon);
         passwordHelp.setSize(30,30);
-        passwordHelp.setToolTipText("W tym oknie należy wpisać swoję hasło. Powinno ono się składać tylko z cyfr. Hasło powinno zawierać przynajmniej 4 znaki");
+        passwordHelp.setToolTipText("Hasło musi być utworzone z cyfr, przynajmniej 5 znaków");
 
 
         helpPanel = new JPanel();
